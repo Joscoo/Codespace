@@ -2,8 +2,8 @@
 //Jose Bonilla - 7246
 
 #include <iostream>
-
 using namespace std;
+#include "utilities.h"
 
 void ingresoVector(int vec[], int n){}
 
@@ -12,7 +12,6 @@ int main(){
     int n;
     int mayorTodos = 0;
     //PROTOTIPOS
-    int leerN();
     void ingresarNumeros(int n, int *mayor);
     //CODIGO
     n = leerN();
@@ -22,15 +21,6 @@ int main(){
     return 0;
 }
 
-int leerN(){
-    int n;
-    cout << "Ingrese un valor positivo" << endl;
-    cin >> n;
-    if(n < 1){
-        n = leerN();
-    }
-    return n;
-}
 
 void ingresarNumeros(int n, int *mayorTodos){
     int num;
