@@ -20,11 +20,16 @@ void pasarAPalabras(char vector[], char p[][EXT], int * nPalabras){
         if((vector[i] > 'A' && vector[i] <= 'Z') || (vector[i] > 'a' && vector[i] <= 'z')){
             p[j][k] = vector[i];
             k++;
-        }else{
-            p[j][k] = '\0';
-            j++;
+        }else {
+            if((vector[i - 1] > 'A' && vector[i - 1] <= 'Z') || (vector[i - 1] > 'a' && vector[i - 1] <= 'z')){
+                p[j][k] = '\0';
+                j++;
+                k = 0;
+            }
         }
     }
+    p[j][k] = '\0';
+    *nPalabras = j + 1;
 }
 
 int main() {
@@ -32,20 +37,13 @@ int main() {
     char palabras[EXT/2][EXT];
     int nPalabras;
 
-    cout << "Ingresa los caracteres del arreglo: ";
+    cout << "Ingresa la palabra: ";
     cin.getline(vector, EXT);
-    int start = 0;
-    int end = strlen(vector) - 1;
 
     pasarAPalabras(vector, palabras, &nPalabras);
 
     for(int i = 0; i < nPalabras; i++){
-        if (esPalindromo(palabras[i], start, end)) {
-            cout << "La palabra: " << palabras[i] <<" es un palindromo" << endl;
-        } else {
-            cout << "La palabra: " << palabras[i] <<" no es un palindromo" << endl;
-        }
+            cout << "La palabra: " << palabras[i] << (esPalindromo(palabras[i], 0, (strlen(palabras[i]) - 1) )? " SI " : " NO ") << " es un palindromo" << endl;
     }
-
     return 0;
 }
