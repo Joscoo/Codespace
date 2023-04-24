@@ -10,12 +10,14 @@ void ingresoVector(int vec[], int n){}
 int main(){
     //VARIABLES
     int n;
+    int mayorTodos = 0;
     //PROTOTIPOS
     int leerN();
-    void ingresarNumeros(int n);
+    void ingresarNumeros(int n, int *mayor);
     //CODIGO
     n = leerN();
-    ingresarNumeros(n);
+    ingresarNumeros(n, &mayorTodos);
+    cout << "El digito mayor de todos es: " << mayorTodos << endl;
 
     return 0;
 }
@@ -30,7 +32,7 @@ int leerN(){
     return n;
 }
 
-void ingresarNumeros(int n){
+void ingresarNumeros(int n, int *mayorTodos){
     int num;
     int digitoMayor;
     void individualizarDigitos(int numero, int *digitoM);
@@ -44,7 +46,10 @@ void ingresarNumeros(int n){
             individualizarDigitos(abs(num), &digitoMayor);
         }    
         cout << "El digito mayor es: " << digitoMayor << endl;
-        ingresarNumeros(n = n - 1);
+        if(digitoMayor > *mayorTodos){
+            *mayorTodos = digitoMayor;
+        }
+        ingresarNumeros(n = n - 1, mayorTodos);
     }
 }
 
