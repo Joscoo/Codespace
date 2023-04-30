@@ -15,7 +15,7 @@ int main(){
     n = leerN();
 
     potenciacion(n);
-
+    // system("Pause"); 
     return 0;
 }
 
@@ -44,7 +44,7 @@ void potenciacion(int n){
         }else{           
             int resulInterno, resulTotal;
             resulInterno = sumaInterna(a, 0, a);
-            resulTotal = sumaTotal(resulInterno, 0, b - 1);
+            resulTotal = sumaInterna(resulInterno, 0, b - 1);
             cout << "Resultado: " << resulTotal << endl;        
             potenciacion(n - 1);
         }
@@ -52,21 +52,13 @@ void potenciacion(int n){
 }
 
 
-int sumaInterna(int a, int resul, int auxA){
-    if (auxA > 0){
-        resul = resul + a ; 
-        sumaInterna(resul, resul, auxA - 1);
-    }else{
-        return resul;
-    }
-}
-
-int sumaTotal(int resul, int almacenador, int ciclos){
-    if(ciclos > 0){
-        almacenador = almacenador + resul;
-        sumaTotal(resul, almacenador, ciclos-1);
+int sumaInterna(int valor, int almacenador, int ciclos){
+    if (ciclos > 0){
+        almacenador = almacenador + valor ; 
+        sumaInterna(almacenador, almacenador, ciclos - 1);
     }else{
         return almacenador;
     }
 }
+
 
