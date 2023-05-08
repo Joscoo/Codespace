@@ -34,22 +34,35 @@ int  Pila::getTop(){
 }
 
 bool Pila::pilaVacia(){
-    if(Pila :: getTop() == -1){
+    if(getTop() == -1){
         return true;
     }else{
         return false;
     }
 }
 bool Pila::pilaLlena(){
-    if(Pila::getTop() == EXT - 1){
+    if(getTop() == EXT - 1){
         return true;
     }else{
         return false;
     }
 }
 
-void Pila::push(Tipo valor){}
-Tipo Pila::pop(){}
+void Pila::push(Tipo valor){
+    if(!pilaLlena()){
+        setTop(getTop() + 1);
+        setVec(valor,getTop());
+    }
+}
+Tipo Pila::pop(){
+    Tipo aux;
+    if(!pilaVacia()){
+        aux = getVec(getTop());
+        setTop(getTop() - 1);
+        return aux;
+    }
+    return;
+}
 
 
 
