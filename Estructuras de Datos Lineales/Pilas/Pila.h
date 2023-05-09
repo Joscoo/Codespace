@@ -70,7 +70,6 @@ Tipo Pila::pop(){
         setTop(getTop() - 1);
         return aux;
     }
-    return;
 }
 
 void Pila::vaciarPila(){
@@ -82,7 +81,9 @@ int Pila::sizePila(){
 }
 
 Tipo Pila::cimaPila(){
-    return getVec(getTop());
+    if(!pilaVacia()){
+        return getVec(getTop());
+    }
 }
 
 

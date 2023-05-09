@@ -4,13 +4,23 @@
 using namespace std;
 
 int main(){
-    // system("color 02");
-
-
+    system("color 02");
     Pila p;
+    
+    void leerPila(Pila p1);
+    void mostrarPila(Pila p1);
 
-    cout << endl << "El valor de top es: " << p.getTop() << endl;
+    leerPila(p);
+    mostrarPila(p);
 
-    // system("Pause");
+    system("Pause");
     return 0;
+}
+
+void leerPila(Pila p1){
+
+}
+
+void mostrarPila(Pila p1){
+
 }
