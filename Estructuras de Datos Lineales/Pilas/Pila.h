@@ -15,20 +15,27 @@ public:
     bool pilaLlena();
     void push(Tipo valor);
     Tipo pop();
+    void vaciarPila();
+    int sizePila();
+    Tipo cimaPila();
 };
 
 Pila::Pila(){
     setTop(-1);
 }
+
 void Pila::setVec(int posicion, Tipo valor){
     vec[posicion] = valor;
 }
+
 void Pila::setTop(int valor){
     top = valor;
 }
+
 Tipo Pila::getVec(int posicion){
     return vec[posicion];
 }
+
 int  Pila::getTop(){
     return top;
 }
@@ -40,6 +47,7 @@ bool Pila::pilaVacia(){
         return false;
     }
 }
+
 bool Pila::pilaLlena(){
     if(getTop() == EXT - 1){
         return true;
@@ -54,6 +62,7 @@ void Pila::push(Tipo valor){
         setVec(valor,getTop());
     }
 }
+
 Tipo Pila::pop(){
     Tipo aux;
     if(!pilaVacia()){
@@ -63,6 +72,20 @@ Tipo Pila::pop(){
     }
     return;
 }
+
+void Pila::vaciarPila(){
+    setTop(-1);
+}
+
+int Pila::sizePila(){
+    return getTop() + 1;
+}
+
+Tipo Pila::cimaPila(){
+    return getVec(getTop());
+}
+
+
 
 
 
