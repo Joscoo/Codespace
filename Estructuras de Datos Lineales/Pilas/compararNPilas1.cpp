@@ -1,7 +1,7 @@
 //Programa que compara si n pilas son iguales
 //Jose Bonilla - 7246
 #include <iostream>
-#include "pila.h"
+#include "CreacionPilas.h"
 #define EXTPILAS 10
 using namespace std;
 int main(){
