@@ -20,6 +20,9 @@ public:
     void borrarCola();
     bool colaVacia();
     bool colaLlena();
+    int sizeCola();
+    void enqueue(Tipo valor);
+    Tipo dequeue();
 };
 
 Cola::Cola(){
@@ -59,3 +62,31 @@ void Cola::borrarCola(){
 bool Cola::colaVacia(){
     return (getFinal() < getFrente());
 }
+
+bool Cola::colaLlena(){
+    return (getFinal() == (EXT -1));
+}
+
+int Cola::sizeCola(){
+    return (getFinal()-getFrente()+1);
+}
+
+
+void Cola::enqueue(Tipo valor){
+    if(!colaLlena()){
+        setFinal(getFinal()+1);
+        setElementos(valor,getFinal());
+    }
+}
+
+Tipo Cola::dequeue(){
+    if(!colaVacia()){
+        Tipo aux = getElementos(getFrente());
+        setFrente(getFrente() + 1);
+        return aux;
+    }
+}
+
+
+
+
