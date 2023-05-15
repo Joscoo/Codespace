@@ -7,43 +7,43 @@ typedef int Tipo;
 class Cola {
 private:
     Tipo elementos[EXT];
-    int top;
-    int bottom;
+    int frente;
+    int final;
 public:
     Cola();
     void setElementos(Tipo valor, int posicion);
-    void setTop(int valor);
-    void setBottom(int valor);
+    void setFrente(int valor);
+    void setFinal(int valor);
     Tipo getElementos(int posicion);
-    int getTop();
-    int getBottom();
+    int getfrente();
+    int getfinal();
 };
 
 Cola::Cola(){
-    setTop(-1);
-    setBottom(1);
+    setFinal(-1);
+    setFrente(0);
 }
 
 void Cola::setElementos(Tipo valor, int posicion){
     elementos[posicion] = valor;
 }
 
-void Cola::setTop(int valor){
-    top = valor;
+void Cola::setFrente(int valor){
+    frente = valor;
 }
 
-void Cola::setBottom(int valor){
-    bottom = valor;
+void Cola::setFinal(int valor){
+    final = valor;
 }
 
 Tipo Cola::getElementos(int posicion){
     return elementos[posicion];
 }
 
-int Cola::getTop(){
-    return top;
+int Cola::getfrente(){
+    return frente;
 }
 
-int Cola::getBottom(){
-    return top;
+int Cola::getfinal(){
+    return frente;
 }
