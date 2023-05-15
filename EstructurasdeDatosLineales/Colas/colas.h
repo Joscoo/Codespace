@@ -15,8 +15,11 @@ public:
     void setFrente(int valor);
     void setFinal(int valor);
     Tipo getElementos(int posicion);
-    int getfrente();
-    int getfinal();
+    int getFrente();
+    int getFinal();
+    void borrarCola();
+    bool colaVacia();
+    bool colaLlena();
 };
 
 Cola::Cola(){
@@ -40,10 +43,19 @@ Tipo Cola::getElementos(int posicion){
     return elementos[posicion];
 }
 
-int Cola::getfrente(){
+int Cola::getFrente(){
     return frente;
 }
 
-int Cola::getfinal(){
-    return frente;
+int Cola::getFinal(){
+    return final;
+}
+
+void Cola::borrarCola(){
+    setFinal(-1);
+    setFrente(0);
+}
+
+bool Cola::colaVacia(){
+    return (getFinal() < getFrente());
 }
