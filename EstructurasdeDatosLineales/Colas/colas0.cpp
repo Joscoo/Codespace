@@ -33,27 +33,19 @@ void mostrarCola(Cola c){
 }
 
 void llenarCola(Cola *c){
-    int opc = 1;
-    do{
-        if(!c->colaLlena()){
+    if(!c->colaLlena()){
             Tipo valor;
-            cout << "Ingrese el valor para agregarlo a la cola" << endl;
+            cout << "Ingrese el valor para agregarlo a la cola (Digite 99999 para salir)" << endl;
             cin >> valor;
-            c->enqueue(valor);
-            cout << "Ingresar otro valor? (1. SI - 2.NO)" << endl;
-            cin >> opc;
+        if(valor != FINAL){
+            if(!c->colaLlena()){
+                c->enqueue(valor);
+                llenarCola(c);
+            }else{
+                cout << "Cola llena" << endl;
+                valor = FINAL;
+            }
         }
-    }while (opc == 1);
-
-
-    // if(!c->colaLlena()){
-    //         Tipo valor;
-    //         cout << "Ingrese el valor para agregarlo a la cola (Digite 99999 para salir)" << endl;
-    //         cin >> valor;
-    //     if(valor != FINAL){
-    //         c->enqueue(valor);
-    //         llenarCola(c);
-    //     }
-    // }
+    }
 }
 
