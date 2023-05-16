@@ -1,7 +1,6 @@
 //Implementar colas.h
 //Jose Bonilla - 7246
 
-
 #include <iostream>
 #include "colas.h"
 
@@ -13,7 +12,7 @@ int main(){
     
     Cola c;
     void llenarCola(Cola *c);
-    void mostrarCola(Cola c, int i = 0);
+    void mostrarCola(Cola c);
 
     cout << endl << "Ingreso de valores para la cola" << endl;
     llenarCola(&c);
@@ -26,22 +25,35 @@ int main(){
     return 0;
 }
 
-void mostrarCola(Cola c, int i = 0){
+void mostrarCola(Cola c){    
     if(!c.colaVacia()){
-        cout << endl << "[ " << i + 1 <<" ] " << c.dequeue() << endl;
-        mostrarCola(c, i + 1);
+        cout << endl << "[ " << c.getFrente() + 1 <<" ] " << c.dequeue() << endl;
+        mostrarCola(c);
     }
 }
 
 void llenarCola(Cola *c){
-    if(!c->colaLlena()){
+    int opc = 1;
+    do{
+        if(!c->colaLlena()){
             Tipo valor;
-            cout << "Ingrese el valor para agregarlo a la cola (Digite 99999 para salir)" << endl;
+            cout << "Ingrese el valor para agregarlo a la cola" << endl;
             cin >> valor;
-        if(valor != FINAL){
             c->enqueue(valor);
-            llenarCola(c);
+            cout << "Ingresar otro valor? (1. SI - 2.NO)" << endl;
+            cin >> opc;
         }
-    }
+    }while (opc == 1);
+
+
+    // if(!c->colaLlena()){
+    //         Tipo valor;
+    //         cout << "Ingrese el valor para agregarlo a la cola (Digite 99999 para salir)" << endl;
+    //         cin >> valor;
+    //     if(valor != FINAL){
+    //         c->enqueue(valor);
+    //         llenarCola(c);
+    //     }
+    // }
 }
 

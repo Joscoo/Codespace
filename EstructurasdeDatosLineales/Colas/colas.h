@@ -21,7 +21,7 @@ public:
     bool colaVacia();
     bool colaLlena();
     int sizeCola();
-    void enqueue(Tipo valor);
+    bool enqueue(Tipo valor);
     Tipo dequeue();
 };
 
@@ -72,11 +72,13 @@ int Cola::sizeCola(){
 }
 
 
-void Cola::enqueue(Tipo valor){
+bool Cola::enqueue(Tipo valor){
     if(!colaLlena()){
         setFinal(getFinal()+1);
         setElementos(valor,getFinal());
+        return true;
     }
+    return false;
 }
 
 Tipo Cola::dequeue(){
