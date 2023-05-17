@@ -1,6 +1,9 @@
 //Definicion de Colas
 //Jose Bonilla - 7246
 
+#ifndef _COLA_H
+#define _COLA_H
+
 typedef int Tipo;
 #define EXT 20
 
@@ -9,20 +12,22 @@ private:
     Tipo elementos[EXT];
     int frente;
     int final;
-public:
-    Cola();
+    
     void setElementos(Tipo valor, int posicion);
     void setFrente(int valor);
     void setFinal(int valor);
     Tipo getElementos(int posicion);
     int getFrente();
     int getFinal();
+public:
+    Cola();
     void borrarCola();
     bool colaVacia();
     bool colaLlena();
     int sizeCola();
     bool enqueue(Tipo valor);
     Tipo dequeue();
+    Tipo frenteCola();
 };
 
 Cola::Cola(){
@@ -93,6 +98,12 @@ Tipo Cola::dequeue(){
     }
 }
 
+Tipo Cola::frenteCola(){
+    if(!colaVacia()){
+        return getElementos(getFrente());
+    }
+}
 
+#endif
 
 
