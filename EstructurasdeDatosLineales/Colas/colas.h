@@ -89,11 +89,8 @@ bool Cola::enqueue(Tipo valor){
 Tipo Cola::dequeue(){
     if(!colaVacia()){
         Tipo aux = getElementos(getFrente());
-        if(getFrente() == getFinal()){
-            borrarCola();
-        }else{
-            setFrente(getFrente() + 1);
-        }
+        
+        setFrente(getFrente() + 1);
         return aux;
     }
 }
