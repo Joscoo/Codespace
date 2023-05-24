@@ -22,11 +22,11 @@ public:
 
 
 Nodo::Nodo(){
-    setPunt(nullptr);
+    setPunt(NULL);
 }
 Nodo::Nodo(Tipo v){
     setDato(v);
-    setPunt(nullptr);
+    setPunt(NULL);
 }
 Nodo::Nodo(Tipo v, Nodo *p){
     setDato(v);

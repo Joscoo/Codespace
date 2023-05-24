@@ -1,7 +1,6 @@
 using namespace std;
 #include <iostream>
 #include "nodo.h"
-
 int main(){
     system("color 02");
     Nodo n;
