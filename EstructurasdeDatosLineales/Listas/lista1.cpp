@@ -7,13 +7,15 @@ int main(){
     system("color 02");
     Lista l;
     void ingresarLista(Lista *l1);
-    void mostrarLista(Lista l1);
+    void imprimirLista(Lista l1);
 
     cout << endl << "El valor apuntado en el primer nodo es : " << l.getPrimero() << endl;
     cout << endl << "La lista" << (l.esVacia() ? " si " :  " no ") <<  "esta vacia"  << endl;
 
     cout << "Valores a ingresar en la lista : " << endl; 
     ingresarLista(&l);
+    cout << "Valores ingresados en la lista : " << endl;
+    imprimirLista(l);
 
     system("pause");
     return 0;
@@ -30,4 +32,14 @@ void ingresarLista(Lista *l1){
         ingresarLista(l1);
     }
 
+}
+
+void imprimirLista(Lista l1){
+    Nodo *act;
+    act = l1.getPrimero();
+
+    while(act != NULL){
+        cout << endl << act->getDato() << endl;
+        act = act->getPunt();
+    }
 }
