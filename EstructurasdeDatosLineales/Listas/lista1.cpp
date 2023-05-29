@@ -8,15 +8,15 @@ int main(){
     Lista l;
     void ingresarLista(Lista *l1);
     void imprimirLista(Lista l1);
-
-    cout << endl << "El valor apuntado en el primer nodo es : " << l.getPrimero() << endl;
-    cout << endl << "La lista" << (l.esVacia() ? " si " :  " no ") <<  "esta vacia"  << endl;
+    void buscarEnLista(Lista l1);
 
     cout << "Valores a ingresar en la lista : " << endl; 
     ingresarLista(&l);
     cout << "Valores ingresados en la lista : " << endl;
     imprimirLista(l);
-    
+
+    buscarEnLista(l);
+
 
     system("pause");
     return 0;
@@ -45,3 +45,14 @@ void imprimirLista(Lista l1){
     }
 }
 
+void buscarEnLista(Lista l1){
+    Tipo aux;
+    Nodo* enc;
+
+    cout << endl << "Ingrese un valor a buscar en la lista : " << endl;
+    cin >> aux;
+
+    enc = l1.buscarElemento(aux);
+
+    cout << endl << "El valor " << aux << (enc == NULL ? " no " : " si ") << "esta en la lista" << endl;
+}

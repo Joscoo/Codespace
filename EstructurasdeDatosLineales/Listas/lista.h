@@ -15,7 +15,8 @@ public:
     void insertarInicio(Tipo v);
     void insertarFinal(Tipo v);
     Nodo* ultimo();
-
+    bool buscar(Tipo v);
+    Nodo* buscarElemento(Tipo v);
 };
 
 Lista::Lista(){
@@ -46,8 +47,10 @@ void Lista::insertarInicio(Tipo v){
 Nodo* Lista::ultimo(){
     Nodo *act;
     act = getPrimero();
-    while(act->getPunt() != NULL){
-        act = act->getPunt();
+    if(!esVacia()){
+        while(act->getPunt() != NULL){
+            act = act->getPunt();
+        }
     }
     return act;
 }
@@ -63,6 +66,23 @@ void Lista::insertarFinal(Tipo v){
     }
 }   
 
+bool Lista::buscar(Tipo v){
+    Nodo *act;
+    act = getPrimero();
+    while(act != NULL && act->getDato() != v){
+        act = act->getPunt();
+    }
+    return (act != NULL);
+}
+
+Nodo* Lista::buscarElemento(Tipo v){
+    Nodo *act;
+    act = getPrimero();
+    while(act != NULL && act->getDato() != v){
+        act = act->getPunt();
+    }
+    return act;
+}
 
 
 
