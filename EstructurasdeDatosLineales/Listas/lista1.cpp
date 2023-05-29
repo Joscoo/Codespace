@@ -16,6 +16,7 @@ int main(){
     ingresarLista(&l);
     cout << "Valores ingresados en la lista : " << endl;
     imprimirLista(l);
+    
 
     system("pause");
     return 0;
@@ -28,7 +29,7 @@ void ingresarLista(Lista *l1){
     cin >> aux;
     
     if(aux != EXT){
-        l1->insertarInicio(aux);
+        l1->insertarFinal(aux);
         ingresarLista(l1);
     }
 
@@ -43,3 +44,4 @@ void imprimirLista(Lista l1){
         act = act->getPunt();
     }
 }
+
