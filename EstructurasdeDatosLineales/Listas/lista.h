@@ -17,6 +17,8 @@ public:
     Nodo* ultimo();
     bool buscar(Tipo v);
     Nodo* buscarElemento(Tipo v);
+    bool eliminar(Tipo v);
+    Nodo* anterior(Nodo *p);
 };
 
 Lista::Lista(){
@@ -82,6 +84,31 @@ Nodo* Lista::buscarElemento(Tipo v){
         act = act->getPunt();
     }
     return act;
+}
+
+bool Lista::eliminar(Tipo v){
+    Nodo *act, *ant;
+    act = buscarElemento(v);
+    ant = anterior(act);
+    if(act != NULL){
+        if(act == getPrimero()){
+            setPrimero(act->getPunt());
+        }else{
+            ant->setPunt(act->getPunt());
+        }
+        delete act;
+        return true;
+    }
+    return false;
+}
+
+Nodo* Lista::anterior(Nodo *p){
+    Nodo *ant;
+    ant = getPrimero();
+    while(ant->getPunt() != p){
+        ant = ant->getPunt();
+    }
+    return ant;
 }
 
 
