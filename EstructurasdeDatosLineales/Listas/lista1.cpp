@@ -9,6 +9,7 @@ int main(){
     void ingresarLista(Lista *l1);
     void imprimirLista(Lista l1);
     void buscarEnLista(Lista l1);
+    void eliminarEnLista(Lista l1);
 
     cout << "Valores a ingresar en la lista : " << endl; 
     ingresarLista(&l);
@@ -16,6 +17,9 @@ int main(){
     imprimirLista(l);
 
     buscarEnLista(l);
+
+    eliminarEnLista(l);
+    imprimirLista(l);
 
 
     system("pause");
@@ -29,7 +33,7 @@ void ingresarLista(Lista *l1){
     cin >> aux;
     
     if(aux != EXT){
-        l1->insertarFinal(aux);
+        l1->insertarEnOrden(aux);
         ingresarLista(l1);
     }
 
@@ -55,4 +59,14 @@ void buscarEnLista(Lista l1){
     enc = l1.buscarElemento(aux);
 
     cout << endl << "El valor " << aux << (enc == NULL ? " no " : " si ") << "esta en la lista" << endl;
+}
+
+
+void eliminarEnLista(Lista l1){
+    Tipo vE;
+    Nodo* enc;
+    cout << endl << "Ingrese un valor a eliminar" << endl;
+    cin >> vE;
+
+
 }

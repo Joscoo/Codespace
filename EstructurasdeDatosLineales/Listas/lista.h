@@ -17,8 +17,8 @@ public:
     Nodo* ultimo();
     bool buscar(Tipo v);
     Nodo* buscarElemento(Tipo v);
-    bool eliminar(Tipo v);
-    Nodo* anterior(Nodo *p);
+    bool eliminarNodo(Tipo v);
+    void insertarEnOrden(Tipo v);
 };
 
 Lista::Lista(){
@@ -86,31 +86,48 @@ Nodo* Lista::buscarElemento(Tipo v){
     return act;
 }
 
-bool Lista::eliminar(Tipo v){
-    Nodo *act, *ant;
-    act = buscarElemento(v);
-    ant = anterior(act);
-    if(act != NULL){
-        if(act == getPrimero()){
-            setPrimero(act->getPunt());
-        }else{
-            ant->setPunt(act->getPunt());
+bool Lista::eliminarNodo(Tipo v){
+    Nodo* act;
+    Nodo* enc = buscarElemento(v);
+
+    if(enc == NULL){
+        return false;
+    }
+
+    if(enc == getPrimero()){
+        setPrimero(enc->getPunt());
+    }else{
+        act = getPrimero();
+        while(act ->getPunt() != enc){
+            act = act->getPunt();
         }
-        delete act;
-        return true;
+        act->setPunt(enc->getPunt());
     }
-    return false;
+
+    return true;
 }
 
-Nodo* Lista::anterior(Nodo *p){
-    Nodo *ant;
-    ant = getPrimero();
-    while(ant->getPunt() != p){
-        ant = ant->getPunt();
-    }
-    return ant;
-}
+void Lista::insertarEnOrden(Tipo v){
+    Nodo* nuevo = new Nodo(v);
+    Nodo* act;
+    Nodo* ant;
 
+    if(esVacia()){
+        setPrimero(nuevo);
+    }else{
+        ant = act = getPrimero();
+        while((act != NULL) && (act->getDato() < v)){
+            act = act->getPunt();
+        }
+        if(ant == act){
+            nuevo->setPunt(getPrimero());
+            setPrimero(nuevo);
+        }else{
+            ant->setPunt(nuevo);
+            nuevo->setPunt(act);
+        }
+    }
+}
 
 
 #endif // LISTA_H
