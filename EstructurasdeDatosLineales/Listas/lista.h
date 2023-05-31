@@ -19,6 +19,7 @@ public:
     Nodo* buscarElemento(Tipo v);
     bool eliminarNodo(Tipo v);
     void insertarEnOrden(Tipo v);
+    Nodo* anterior(Nodo *p);
 };
 
 Lista::Lista(){
@@ -127,7 +128,19 @@ void Lista::insertarEnOrden(Tipo v){
             nuevo->setPunt(act);
         }
     }
+
 }
 
+Nodo* Lista::anterior(Nodo *p){
+    Nodo* act;
+    Nodo* ant;
+    act = getPrimero();
+    ant = NULL;
+    while((act != NULL) && (act != p)){
+        ant = act;
+        act = act->getPunt();
+    }
+    return ant;
+}
 
 #endif // LISTA_H
