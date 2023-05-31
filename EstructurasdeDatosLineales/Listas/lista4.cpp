@@ -16,7 +16,7 @@ int main(){
 
     void ingresarLista(Lista *l1);
     void imprimirLista(Lista l1);
-    void intercalarListas(Lista *l1, Lista *l2, Lista *l3);
+    void intercalarListas(Nodo* a1, Nodo* a2, Lista *l3);
 
     cout << endl << "Datos a Ingresar en lista 1" << endl;
     ingresarLista(&lista1);
@@ -30,7 +30,7 @@ int main(){
     cout << endl << "Datos almacenados en la lista 2" << endl;
     imprimirLista(lista2);
 
-    intercalarListas(&lista1, &lista2, &lista3);
+    intercalarListas(lista1.getPrimero(), lista2.getPrimero(), &lista3);
     cout << endl << "Lista Intercalada" << endl;
     imprimirLista(lista3);
 
@@ -61,21 +61,24 @@ void imprimirLista(Lista l1){
     }
 }
 
-void intercalarListas(Lista *l1, Lista *l2, Lista *l3){
-    Nodo *act1;
-    Nodo *act2;
-    act1 = l1->getPrimero();
-    act2 = l2->getPrimero();
+void intercalarListas(Nodo* a1, Nodo* a2, Lista *l3){
 
-    while(act1 != NULL || act2 != NULL){
-        if(act1 != NULL){
-            l3->insertarFinal(act1->getDato());
-            act1 = act1->getPunt();
-        }
-
-        if(act2 != NULL){
-            l3->insertarFinal(act2->getDato());
-            act2 = act2->getPunt();
-        }
+    if(a1 == NULL && a2 == NULL){
+        return;
     }
+
+    if(a1 != NULL){
+        l3->insertarFinal(a1->getDato());
+        a1 = a1->getPunt();
+    }
+
+    if(a2 != NULL){
+        l3->insertarFinal(a2->getDato());
+        a2 = a2->getPunt();
+    }
+    
+
+    intercalarListas(a1,a2,l3);
 }
+
+
