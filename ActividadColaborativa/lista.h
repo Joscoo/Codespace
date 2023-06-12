@@ -1,6 +1,6 @@
 #ifndef LISTA_H
 #define LISTA_H
-
+#define NULL __null
 #include "nodo.h"
 
 class Lista{
@@ -20,7 +20,7 @@ public:
     bool eliminarNodo(Tipo v);
     void insertarEnOrden(Tipo v);
     Nodo* anterior(Nodo *p);
-    int contarElementos();
+    int longitudLista();
 };
 
 Lista::Lista(){
@@ -109,33 +109,25 @@ bool Lista::eliminarNodo(Tipo v){
     return true;
 }
 
-
 void Lista::insertarEnOrden(Tipo v){
-    Nodo* nuevo;
+    Nodo* nuevo = new Nodo(v);
     Nodo* act;
     Nodo* ant;
-    nuevo = new Nodo(v);
 
     if(esVacia()){
         setPrimero(nuevo);
     }else{
-        ant = act = getPrimero();                  //iniciamos con la direccion apuntada por inicio de lista
-
-        while((act != NULL ) && (act -> getDato()) < v){        //Recorer hasta la posicion anterior a la que el puntero del nodo apunta a NULL
-            ant = act;
+        ant = act = getPrimero();
+        while((act != NULL) && (act->getDato() < v)){
             act = act->getPunt();
         }
-        if(act == ant){
-            nuevo -> setPunt(getPrimero());
-            setPrimero(nuevo);                          //el nuevo nodo va a ser el nuevo primero de la lista
-        
+        if(ant == act){
+            nuevo->setPunt(getPrimero());
+            setPrimero(nuevo);
         }else{
-            //actualizar de apuntadores
-
-            ant -> setPunt(nuevo);
-            nuevo -> setPunt(act);
+            ant->setPunt(nuevo);
+            nuevo->setPunt(act);
         }
-        
     }
 
 }
@@ -152,7 +144,7 @@ Nodo* Lista::anterior(Nodo *p){
     return ant;
 }
 
-int Lista::contarElementos(){
+int Lista::longitudLista(){
     Nodo* act;
     int cont = 0;
     act = getPrimero();

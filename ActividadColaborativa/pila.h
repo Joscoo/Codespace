@@ -1,3 +1,6 @@
+#ifndef PILA_H
+#define PILA_H
+
 #include <iostream>
 using namespace std;
 
@@ -93,5 +96,5 @@ Tipo Pila::cimaPila() {
     }
 }
 
-
+#endif
 

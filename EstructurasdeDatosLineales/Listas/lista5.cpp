@@ -29,8 +29,9 @@ int main(){
 
     generarListas(numeros, listas, n);
 
-    cout << endl << "Listas " << endl;
+    cout << endl << "Lista " << endl;
     imprimirListas(numeros, listas, n);
+
 
 
     system("pause");
@@ -67,13 +68,19 @@ void generarListas(int num[], Lista l[], int n1){
     }
 }
 
+
 void imprimirListas(int num[], Lista l[], int n1){
     for(int i = 0; i < n1; i++){
         cout << endl << "> " << num[i] << endl;
 
         Nodo *act = l[i].getPrimero();
         while(act != NULL){
-            cout << endl << "\t" << " > " << act->getDato() << endl;
+            Nodo* aux = l[i].getPrimero();
+            while(aux != NULL){
+                if(act->getDato() != aux->getDato()){}
+                cout << endl << "\t" << " > " << act->getDato() << endl;
+                aux = aux->getPunt();
+            }
             act = act->getPunt();
         }
     }
