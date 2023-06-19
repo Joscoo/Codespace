@@ -13,6 +13,8 @@ class NodoBinario
         NodoBinario *der;
     public:
         NodoBinario();
+        NodoBinario(Tipo val);
+        NodoBinario(Tipo val, NodoBinario* puntIzq, NodoBinario* puntDer);
         void setDato(Tipo val);
         void setIzq(NodoBinario *punt);
         void setDer(NodoBinario *punt);
@@ -25,6 +27,19 @@ class NodoBinario
         setIzq(NULL);
         setDer(NULL);
     }
+
+    NodoBinario::NodoBinario(Tipo val){
+        setDato(val);
+        setIzq(NULL);
+        setDer(NULL);
+    }
+
+    NodoBinario::NodoBinario(Tipo val, NodoBinario* puntIzq, NodoBinario* puntDer){
+        setDato(val);
+        setIzq(puntIzq);
+        setDer(puntDer);
+    }
+
     void NodoBinario::setDato(Tipo val){
         dato = val;
     }
