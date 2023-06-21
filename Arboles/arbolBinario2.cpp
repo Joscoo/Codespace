@@ -94,4 +94,3 @@ void recorrerAB(ArbolBinario a){		//funcion que implementa los diversos recorrid
 	cout << endl << "RECORRIDO EN POSORDEN" << endl;
 	a.recorrerEnPostorden();		//llama al metodo correspondiente
 }
-

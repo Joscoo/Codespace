@@ -36,7 +36,7 @@ private:								//atributos
 		if (aux != fin){				//no ingresa marcador de fin lectura
 		   p = construirAB(aux, NULL, NULL);  	//construye nuevo nodo solo con dato
 		   imprimirEsp(margen);			//imprimir espacios
-		   cout << "--- SUBARBOL IZQUIERDO ---";
+		    cout << "--- SUBARBOL IZQUIERDO ---";
 		   p -> setIzq(leerNodo(margen+1)) ;	//puntero izq recibe direccion nuevo nodo ingresado
 		   imprimirEsp(margen);			//imprimir espacios
 		   cout << "--- SUBARBOL DERECHO ---";
@@ -91,7 +91,7 @@ private:								//atributos
 					NodoBinario* dr = insertar(rSub->getDer(), v);	//tratar de insertar a derecha del nodo actual
 					rSub->setDer(dr);						//actualiza apuntador
 				} else {									//valor a insertar ya existe en arbol
-					return NULL; 							//Nodo duplicado tratamiento de repetición
+					return rSub; 							//Nodo duplicado tratamiento de repetición
 				}			
 			} 
 		} 
