@@ -4,10 +4,11 @@ using namespace std;
 
 #include <iostream>
 #include "vertice.h"
+#include "utilities.h"
 
 int main(){
     system("color 02");
-    Vertice v, v2(500), v3(700,3);
+    Vertice v, v2("500"), v3("700",3);
     Tipo aux;
 
     cout << "Ingrese un valor a almacenar" << endl;

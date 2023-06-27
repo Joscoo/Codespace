@@ -1,7 +1,7 @@
 #ifndef VERTICE_H
 #define VERTICE_H
 
-typedef int Tipo;
+typedef string Tipo;
 
 class Vertice 
 {
