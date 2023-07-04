@@ -2,7 +2,8 @@
 
 #ifndef NODO_H
 #define NODO_H
-#include "vertice.h"
+#define NULL __null
+#include "Vertice.h"
 
 typedef Vertice Tipo;
 

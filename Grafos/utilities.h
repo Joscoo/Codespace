@@ -1,10 +1,11 @@
 
-int leerN(){
+int leerN(int inf, int sup){
     int n;
-    cout << "Ingrese un valor positivo" << endl;
+    cout << "Ingrese un valor " << endl;
     cin >> n;
-    if(n < 1){
-        n = leerN();
+    if(n < inf || n > sup){
+        n = leerN(inf, sup);
     }
     return n;
 }
+

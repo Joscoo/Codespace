@@ -21,6 +21,7 @@ class Vertice
     int getNum();
     bool esIgual(Tipo v);
     bool esIgualNum(int n);
+    bool esIgualDato(Tipo v);
 };
 
 Vertice::Vertice(){
@@ -61,6 +62,8 @@ bool Vertice::esIgualNum(int n){
     return getNum() == n;
 }
 
-
+bool Vertice::esIgualDato(Tipo v){
+    return getDato() == v;
+}
 
 #endif
