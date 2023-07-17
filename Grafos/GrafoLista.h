@@ -3,6 +3,7 @@
 
 #ifndef _GRAFOLISTA_H
 #define _GRAFOLISTA_H
+#define NULL __null
 
 typedef int * pint;						//para el dimensionamiento de la matriz
 
@@ -108,7 +109,7 @@ void GrafoLista::setArco(Tipo a, Tipo b, int v) {			//modifica el valor almacena
 	vb = getNumVertice(b);									//calcula numero de vertice del segundo nombre recibido
 	if ((va >= 0) && (vb >= 0)) {							//comprueba existencia de los dos vertices
 		arcos[va] -> insertarAlFinal(verts[vb].getDato(), v);	//añade un nuevo vertice en la lista de este elemento del vector
- 	}
+    }
 }
 
 int GrafoLista::getMaxVerts(){								//devuelve cantidad maxima de vertices
