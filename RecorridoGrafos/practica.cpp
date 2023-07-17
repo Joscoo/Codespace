@@ -18,6 +18,8 @@ int main(){
 	void recorrerGrafo(GrafoMatriz g);			
 	void imprimirGrafo(GrafoMatriz g);			
 
+    //Para la resolucion de la practica se modifico el archivo de cabecera RecorreGrafo.h
+
 	
 	cout << endl << "CANTIDAD DE VERTICES DEL GRAFO" << endl;
 	n = leerN(1,20);						
